@@ -6,11 +6,11 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 21:37:01 by sbouheni          #+#    #+#              #
-#    Updated: 2024/06/05 12:35:02 by sbouheni         ###   ########.fr        #
+#    Updated: 2024/06/05 12:44:21 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME					=	exchange
+NAME					=	btc
 
 CXX						=	c++
 CXXFLAGS				=	-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
