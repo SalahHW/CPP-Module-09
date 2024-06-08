@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:13:09 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/08 06:31:00 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/08 06:46:36 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ float BitcoinData::getExchangeRate(Date const &date) const
     }
     else
     {
-        throw std::runtime_error("Error: no exchange rate found for the given date or earlier.");
+        throw std::runtime_error("Error: no exchange rate found for the given date");
     }
 }
 
