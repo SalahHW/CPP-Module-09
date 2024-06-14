@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 05:00:40 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/08 06:30:55 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/14 03:04:01 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Date &Date::operator=(Date const &other)
 }
 
 Date::Date(std::string const &date)
+	: input_date(date)
 {
 	std::string year_str;
 	std::string month_str;
@@ -47,6 +48,11 @@ Date::Date(std::string const &date)
 	year = atoi(year_str.c_str());
 	month = atoi(month_str.c_str());
 	day = atoi(day_str.c_str());
+}
+
+std::string const & Date::getDate() const
+{
+	return (input_date);
 }
 
 int Date::getYear() const
@@ -77,4 +83,10 @@ bool Date::operator<(Date const &other) const
 bool Date::operator==(Date const &other) const
 {
 	return (year == other.year && month == other.month && day == other.day);
+}
+
+std::ostream &operator<<(std::ostream &os, Date const &date)
+{
+	os << date.getDate();
+	return (os);
 }
