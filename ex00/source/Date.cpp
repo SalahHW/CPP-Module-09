@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 05:00:40 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/14 03:04:01 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/14 03:18:17 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,7 @@ Date &Date::operator=(Date const &other)
 Date::Date(std::string const &date)
 	: input_date(date)
 {
-	std::string year_str;
-	std::string month_str;
-	std::string day_str;
-	std::string::size_type first_separator = date.find('-');
-	std::string::size_type second_separator = date.find('-', first_separator + 1);
-
-	if (first_separator == std::string::npos || second_separator == std::string::npos)
-		throw std::runtime_error("Invalid format");
-	year_str = date.substr(0, first_separator);
-	month_str = date.substr(first_separator + 1, second_separator - first_separator - 1);
-	day_str = date.substr(second_separator + 1);
-
-	year = atoi(year_str.c_str());
-	month = atoi(month_str.c_str());
-	day = atoi(day_str.c_str());
+	processDate(date);
 }
 
 std::string const & Date::getDate() const
@@ -83,6 +69,25 @@ bool Date::operator<(Date const &other) const
 bool Date::operator==(Date const &other) const
 {
 	return (year == other.year && month == other.month && day == other.day);
+}
+
+void Date::processDate(std::string const &date)
+{
+	std::string year_str;
+	std::string month_str;
+	std::string day_str;
+	std::string::size_type first_separator = date.find('-');
+	std::string::size_type second_separator = date.find('-', first_separator + 1);
+
+	if (first_separator == std::string::npos || second_separator == std::string::npos)
+		throw std::runtime_error("Invalid format");
+	year_str = date.substr(0, first_separator);
+	month_str = date.substr(first_separator + 1, second_separator - first_separator - 1);
+	day_str = date.substr(second_separator + 1);
+
+	year = atoi(year_str.c_str());
+	month = atoi(month_str.c_str());
+	day = atoi(day_str.c_str());
 }
 
 std::ostream &operator<<(std::ostream &os, Date const &date)
