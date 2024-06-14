@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 05:00:40 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/14 03:18:17 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/14 03:23:01 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,22 @@ Date::Date(std::string const &date)
 
 std::string const & Date::getDate() const
 {
-	return (input_date);
+	return (this->input_date);
 }
 
 int Date::getYear() const
 {
-	return (year);
+	return (this->year);
 }
 
 int Date::getMonth() const
 {
-	return (month);
+	return (this->month);
 }
 
 int Date::getDay() const
 {
-	return (day);
+	return (this->day);
 }
 
 bool Date::operator<(Date const &other) const
