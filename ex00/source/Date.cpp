@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 05:00:40 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/14 03:23:01 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/16 19:18:26 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ Date &Date::operator=(Date const &other)
 Date::Date(std::string const &date)
 	: input_date(date)
 {
+	
 	processDate(date);
 }
 
@@ -73,6 +74,43 @@ bool Date::operator==(Date const &other) const
 
 void Date::processDate(std::string const &date)
 {
+	try
+	{
+		validDate(date);
+		convertDate(date);
+		validDate();
+		is_valid = true;
+	}
+	catch(const std::exception& e)
+	{
+		is_valid = false;
+	}
+}
+
+void Date::validDate(std::string const &date)
+{
+	if (date.size() != 10)
+		throw std::exception();
+	for (int i = 0; i < 10; i++)
+	{
+		if (i == 4 || i == 7)
+		{
+			if (date[i] != '-')
+				throw std::exception();
+		}
+		else if (date[i] < '0' || date[i] > '9')
+			throw std::exception();
+	}
+}
+
+void Date::validDate()
+{
+	if (year < 0 || year > 2025 || month < 1 || month > 12 || day < 1 || day > 31)
+		throw std::exception();
+}
+
+void Date::convertDate(std::string const &date)
+{
 	std::string year_str;
 	std::string month_str;
 	std::string day_str;
@@ -80,14 +118,21 @@ void Date::processDate(std::string const &date)
 	std::string::size_type second_separator = date.find('-', first_separator + 1);
 
 	if (first_separator == std::string::npos || second_separator == std::string::npos)
-		throw std::runtime_error("Invalid format");
+		throw std::exception();
 	year_str = date.substr(0, first_separator);
 	month_str = date.substr(first_separator + 1, second_separator - first_separator - 1);
 	day_str = date.substr(second_separator + 1);
 
-	year = atoi(year_str.c_str());
-	month = atoi(month_str.c_str());
-	day = atoi(day_str.c_str());
+	try
+	{
+		year = atoi(year_str.c_str());
+		month = atoi(month_str.c_str());
+		day = atoi(day_str.c_str());
+	}
+	catch(const std::exception& e)
+	{
+		throw std::exception();
+	}
 }
 
 std::ostream &operator<<(std::ostream &os, Date const &date)

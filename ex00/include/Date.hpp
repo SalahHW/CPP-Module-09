@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 03:30:44 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/14 03:16:55 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/16 19:15:42 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,12 @@ private:
 	int year;
 	int month;
 	int day;
+	bool is_valid;
 
 	void processDate(std::string const &date);
+	void validDate(std::string const &date);
+	void validDate();
+	void convertDate(std::string const &date);
 };
 
 std::ostream &operator<<(std::ostream &os, Date const &date);
