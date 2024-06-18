@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinData.hpp                                    :+:      :+:    :+:   */
+/*   ADataFile.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 17:47:15 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 13:35:10 by sbouheni         ###   ########.fr       */
+/*   Created: 2024/06/17 09:07:04 by sbouheni          #+#    #+#             */
+/*   Updated: 2024/06/18 13:33:26 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ADataFile.hpp"
-#include "Date.hpp"
-#include <fstream>
+#include <Date.hpp>
 #include <map>
 #include <string>
+#include <fstream>
 #include <iostream>
-#include <cstdlib>
 
-class Date;
-
-class BitcoinData : public ADataFile
+class ADataFile
 {
 public:
-    ~BitcoinData();
-    BitcoinData(char const *filePath);
-    
-    float getExchangeRate(Date const &date) const;
-    
-private:
-    BitcoinData();
-    BitcoinData(const BitcoinData &other);
-    BitcoinData &operator=(const BitcoinData &other);
+	virtual ~ADataFile();
+	ADataFile(char const *filePath);
 
-    void    processLine(std::string const &line);
-    void    addEntry(std::string const &date, std::string const &value);
+private:
+	ADataFile();
+	ADataFile(ADataFile const &other);
+	ADataFile &operator=(ADataFile const &other);
+
+	virtual void processLine(std::string const &line) = 0;
+
+protected:
+	void loadFromFile();
+
+	char const *filePath;
+	std::map<Date, float> data;
 };

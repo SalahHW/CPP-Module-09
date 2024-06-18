@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:13:09 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/08 06:46:36 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 13:35:34 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 BitcoinData::~BitcoinData() {}
 
 BitcoinData::BitcoinData(char const *filePath)
+    : ADataFile(filePath)
 {
     try
     {
-        loadFromFile(filePath);
+        loadFromFile();
     }
     catch (const std::runtime_error &e)
     {
@@ -43,17 +44,6 @@ float BitcoinData::getExchangeRate(Date const &date) const
     {
         throw std::runtime_error("Error: no exchange rate found for the given date");
     }
-}
-
-void BitcoinData::loadFromFile(char const *filePath)
-{
-    std::ifstream data_file(filePath);
-    std::string line;
-
-    if (!data_file.is_open())
-        throw std::runtime_error("Error while opening file");
-    while (getline(data_file, line))
-        processLine(line);
 }
 
 void BitcoinData::processLine(std::string const &line)
