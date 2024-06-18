@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:04:34 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 16:30:14 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:11:56 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ ADataFile::ADataFile(char const *filePath)
 std::map<Date, float> ADataFile::getData() const
 {
     return (data);
+}
+
+void ADataFile::processLine(std::string const &line)
+{
+    std::string::size_type separator = line.find(separator_char);
+
+    if (separator == std::string::npos)
+        return;
+    std::string date = line.substr(0, separator);
+    std::string value = line.substr(separator + 1);
+    addEntry(date, value);
 }
 
 void ADataFile::loadFromFile()

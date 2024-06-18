@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:59:59 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 16:44:17 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:13:16 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ UserInput::~UserInput() {}
 UserInput::UserInput(char const *filePath)
 	: ADataFile(filePath)
 {
+	separator_char = '|';
 	try
 	{
 		loadFromFile();
@@ -25,15 +26,4 @@ UserInput::UserInput(char const *filePath)
 	{
 		throw e;
 	}
-}
-
-void UserInput::processLine(std::string const &line)
-{
-	std::string::size_type separator = line.find('|');
-
-	if (separator == std::string::npos)
-		return;
-	std::string date = line.substr(0, separator);
-	std::string value = line.substr(separator + 1);
-	addEntry(date, value);
 }

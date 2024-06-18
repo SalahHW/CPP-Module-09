@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:07:04 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 16:29:20 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:11:30 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ private:
 	ADataFile(ADataFile const &other);
 	ADataFile &operator=(ADataFile const &other);
 
-	virtual void processLine(std::string const &line) = 0;
+	void processLine(std::string const &line);
 
 protected:
 	void loadFromFile();
@@ -39,4 +39,5 @@ protected:
 
 	char const *filePath;
 	std::map<Date, float> data;
+	char separator_char;
 };
