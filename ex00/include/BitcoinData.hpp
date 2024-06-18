@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 17:47:15 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 13:35:10 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:41:48 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,4 @@ private:
     BitcoinData &operator=(const BitcoinData &other);
 
     void    processLine(std::string const &line);
-    void    addEntry(std::string const &date, std::string const &value);
 };
