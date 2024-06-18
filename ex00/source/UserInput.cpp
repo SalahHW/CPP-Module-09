@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:59:59 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 16:12:14 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:44:17 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ UserInput::UserInput(char const *filePath)
 	}
 	catch (const std::runtime_error &e)
 	{
-		std::cerr << e.what() << std::endl;
+		throw e;
 	}
 }
 
