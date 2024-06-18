@@ -6,12 +6,13 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 12:41:43 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/08 06:35:33 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:40:27 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include "BitcoinData.hpp"
+#include "UserInput.hpp"
 #include "Date.hpp"
 #include <iostream>
 #include <string>
@@ -24,9 +25,16 @@ int main(int argc, char **argv)
 		std::cerr << "Usage: " << "./btc <filename>" << std::endl;
 		return (1);
 	}
-	(void) argv;
-	BitcoinData data(dataFilePath.c_str());
-	Date test("2022-03-28");
-	std::cout << data.getExchangeRate(test) << std::endl;
+	try
+	{
+		BitcoinData data(dataFilePath.c_str());
+		UserInput input(argv[1]);
+		BitcoinExchange(data, input);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 	return (0);
 }
