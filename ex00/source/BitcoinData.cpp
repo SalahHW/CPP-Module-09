@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:13:09 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 17:12:51 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:24:39 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ BitcoinData::BitcoinData(char const *filePath)
     try
     {
         loadFromFile();
+        if (data_size == 0)
+            throw (std::runtime_error("No data found"));
     }
     catch (const std::runtime_error &e)
     {
