@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 21:37:01 by sbouheni          #+#    #+#              #
-#    Updated: 2024/06/17 11:30:02 by sbouheni         ###   ########.fr        #
+#    Updated: 2024/06/18 16:13:42 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS					=	main.cpp											\
 							ADataFile.cpp										\
 							BitcoinExchange.cpp									\
 							BitcoinData.cpp										\
+							UserInput.cpp										\
 							Date.cpp											\
 
 OBJS        			=	$(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
