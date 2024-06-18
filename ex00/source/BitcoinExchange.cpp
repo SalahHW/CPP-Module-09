@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:08:08 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 16:37:51 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:32:49 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ BitcoinExchange::BitcoinExchange(ADataFile const &bitcoinData, ADataFile const &
 	while (it != user_input.end())
 	{
 		std::cout << it->first << " " << it->second << std::endl;
+		it++;
 	}
 }
