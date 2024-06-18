@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:07:04 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 13:33:26 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:12:08 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ private:
 
 protected:
 	void loadFromFile();
+	void addEntry(std::string const &date_str, std::string const &value_str);
 
 	char const *filePath;
 	std::map<Date, float> data;

@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:13:09 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 13:35:34 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:11:26 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,4 @@ void BitcoinData::processLine(std::string const &line)
     std::string date = line.substr(0, separator);
     std::string value = line.substr(separator + 1);
     addEntry(date, value);
-}
-
-void BitcoinData::addEntry(std::string const &date_str, std::string const &value_str)
-{
-    try
-    {
-        float value;
-        Date date(date_str);
-        value = strtof(value_str.c_str(), NULL);
-        data[date] = value;
-    }
-    catch (const std::exception &e)
-    {
-        return;
-    }
 }
