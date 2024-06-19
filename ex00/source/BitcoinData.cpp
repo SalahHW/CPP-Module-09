@@ -30,7 +30,7 @@ BitcoinData::BitcoinData(char const *filePath)
     }
 }
 
-float BitcoinData::getExchangeRate(Date const &date) const
+float BitcoinData::getExchangeRate(Date &date) const
 {
     std::map<Date *, float>::const_iterator it = data.lower_bound(&date);
 
