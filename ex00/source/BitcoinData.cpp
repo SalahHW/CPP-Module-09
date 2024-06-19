@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:13:09 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 17:24:39 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:41:20 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ BitcoinData::BitcoinData(char const *filePath)
 
 float BitcoinData::getExchangeRate(Date const &date) const
 {
-    std::map<Date, float>::const_iterator it = data.lower_bound(date);
+    std::map<Date *, float>::const_iterator it = data.lower_bound(&date);
 
-    if (it != data.end() && it->first == date)
+    if (it != data.end() && it->first == &date)
     {
         return it->second;
     }

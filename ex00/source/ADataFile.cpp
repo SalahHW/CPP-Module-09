@@ -6,20 +6,28 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:04:34 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 17:32:07 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:54:22 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ADataFile.hpp"
 
-ADataFile::~ADataFile() {}
+ADataFile::~ADataFile()
+{
+    std::map<Date *, float>::iterator it = data.begin();
+    while (it != data.end())
+    {   
+        delete it->first;
+        it++;
+    }
+}
 
 ADataFile::ADataFile(char const *filePath)
 	: filePath(filePath)
 {
 }
 
-std::map<Date, float> ADataFile::getData() const
+std::map<Date *, float> ADataFile::getData() const
 {
     return (data);
 }
@@ -56,7 +64,7 @@ void ADataFile::addEntry(std::string const &date_str, std::string const &value_s
     try
     {
         float value;
-        Date date(date_str);
+        Date * date = new Date(date_str);
         value = strtof(value_str.c_str(), NULL);
         data[date] = value;
         data_size ++;

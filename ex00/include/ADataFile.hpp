@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:07:04 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/18 17:22:23 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:38:03 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	virtual ~ADataFile();
 	ADataFile(char const *filePath);
 
-	std::map<Date, float> getData() const;
+	std::map<Date *, float> getData() const;
 	size_t getDataSize() const;
 
 private:
@@ -39,7 +39,7 @@ protected:
 	void addEntry(std::string const &date_str, std::string const &value_str);
 
 	char const *filePath;
-	std::map<Date, float> data;
+	std::map<Date *, float> data;
 	size_t data_size;
 	char separator_char;
 };
