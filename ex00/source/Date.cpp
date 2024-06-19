@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 05:00:40 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/16 19:18:26 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:37:25 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ Date &Date::operator=(Date const &other)
 Date::Date(std::string const &date)
 	: input_date(date)
 {
-	
 	processDate(date);
 }
 
