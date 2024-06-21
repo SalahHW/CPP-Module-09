@@ -12,19 +12,21 @@
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::~BitcoinExchange() {}
-
-BitcoinExchange::BitcoinExchange(ADataFile const &bitcoinData, ADataFile const &userInput)
+BitcoinExchange::~BitcoinExchange()
 {
-	std::map<Date *, float> bitcoin_data = bitcoinData.getData();
-	std::map<Date *, float> user_input = userInput.getData();
-	std::map<Date *, float>::iterator it;
-	
-	if (!user_input.empty())
-		it = user_input.begin();
-	while (it != user_input.end())
-	{
-		std::cout << *it->first << ":" << it->second << "\n";
-		it++;
-	}
+}
+
+BitcoinExchange::BitcoinExchange(ADataFile const& bitcoinData, ADataFile const& userInput)
+{
+    std::map<Date*, float> bitcoin_data = bitcoinData.getData();
+    std::map<Date*, float> user_input = userInput.getData();
+    std::map<Date*, float>::iterator it;
+
+    if (!user_input.empty())
+        it = user_input.begin();
+    while (it != user_input.end())
+    {
+        std::cout << *it->first << ":" << it->second << "\n";
+        ++it;
+    }
 }
