@@ -12,9 +12,11 @@
 
 #include "BitcoinData.hpp"
 
-BitcoinData::~BitcoinData() {}
+BitcoinData::~BitcoinData()
+{
+}
 
-BitcoinData::BitcoinData(char const *filePath)
+BitcoinData::BitcoinData(char const* filePath)
     : ADataFile(filePath)
 {
     separator_char = ',';
@@ -24,15 +26,15 @@ BitcoinData::BitcoinData(char const *filePath)
         if (data_size == 0)
             throw (std::runtime_error("No data found"));
     }
-    catch (const std::runtime_error &e)
+    catch (const std::runtime_error&)
     {
-        throw e;
+        throw;
     }
 }
 
-float BitcoinData::getExchangeRate(Date &date) const
+float BitcoinData::getExchangeRate(Date& date) const
 {
-    std::map<Date *, float>::const_iterator it = data.lower_bound(&date);
+    std::map<Date*, float>::const_iterator it = data.lower_bound(&date);
 
     if (it != data.end() && it->first == &date)
     {

@@ -14,22 +14,22 @@
 
 ADataFile::~ADataFile()
 {
-    std::map<Date *, float>::iterator it = data.begin();
+    std::map<Date*, float>::iterator it = data.begin();
     while (it != data.end())
-    {   
+    {
         delete it->first;
-        it++;
+        ++it;
     }
 }
 
-ADataFile::ADataFile(char const *filePath)
-	: filePath(filePath)
+ADataFile::ADataFile(char const* filePath)
+    : filePath(filePath)
 {
     data_size = 0;
     separator_char = ',';
 }
 
-std::map<Date *, float> ADataFile::getData() const
+std::map<Date*, float> ADataFile::getData() const
 {
     return (data);
 }
@@ -39,7 +39,7 @@ size_t ADataFile::getDataSize() const
     return (data_size);
 }
 
-void ADataFile::processLine(std::string const &line)
+void ADataFile::processLine(std::string const& line)
 {
     std::string::size_type separator = line.find(separator_char);
 
@@ -52,26 +52,26 @@ void ADataFile::processLine(std::string const &line)
 
 void ADataFile::loadFromFile()
 {
-	std::ifstream data_file(filePath);
-	std::string line;
+    std::ifstream data_file(filePath);
+    std::string line;
 
-	if (!data_file.is_open())
-		throw std::runtime_error("Error while opening file");
-	while (getline(data_file, line))
-		processLine(line);
+    if (!data_file.is_open())
+        throw std::runtime_error("Error while opening file");
+    while (getline(data_file, line))
+        processLine(line);
 }
 
-void ADataFile::addEntry(std::string const &date_str, std::string const &value_str)
+void ADataFile::addEntry(std::string const& date_str, std::string const& value_str)
 {
     try
     {
         float value;
-        Date * date = new Date(date_str);
+        Date* date = new Date(date_str);
         value = strtof(value_str.c_str(), NULL);
         data[date] = value;
-        data_size ++;
+        data_size++;
     }
-    catch (const std::exception &e)
+    catch (const std::exception& e)
     {
         return;
     }
