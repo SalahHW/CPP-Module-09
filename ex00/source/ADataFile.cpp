@@ -25,6 +25,8 @@ ADataFile::~ADataFile()
 ADataFile::ADataFile(char const *filePath)
 	: filePath(filePath)
 {
+    data_size = 0;
+    separator_char = ',';
 }
 
 std::map<Date *, float> ADataFile::getData() const
