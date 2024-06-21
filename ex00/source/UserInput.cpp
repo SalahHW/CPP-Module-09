@@ -12,20 +12,22 @@
 
 #include "UserInput.hpp"
 
-UserInput::~UserInput() {}
-
-UserInput::UserInput(char const *filePath)
-	: ADataFile(filePath)
+UserInput::~UserInput()
 {
-	separator_char = '|';
-	try
-	{
-		loadFromFile();
-		if (data_size == 0)
+}
+
+UserInput::UserInput(char const* filePath)
+    : ADataFile(filePath)
+{
+    separator_char = '|';
+    try
+    {
+        loadFromFile();
+        if (data_size == 0)
             throw (std::runtime_error("No data found"));
-	}
-	catch (const std::runtime_error &e)
-	{
-		throw e;
-	}
+    }
+    catch (const std::runtime_error&)
+    {
+        throw;
+    }
 }

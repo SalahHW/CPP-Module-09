@@ -12,7 +12,8 @@
 
 #pragma once
 
-#include "ADataFile.hpp"
+#include "BitcoinData.hpp"
+#include "UserInput.hpp"
 #include <iostream>
 #include <map>
 
@@ -20,7 +21,7 @@ class BitcoinExchange
 {
 public:
     ~BitcoinExchange();
-    BitcoinExchange(ADataFile const &bitcoinData, ADataFile const &userInput);
+    BitcoinExchange(BitcoinData const &bitcoinData, UserInput const &userInput);
 
 private:
     BitcoinExchange();

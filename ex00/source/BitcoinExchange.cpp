@@ -16,7 +16,7 @@ BitcoinExchange::~BitcoinExchange()
 {
 }
 
-BitcoinExchange::BitcoinExchange(ADataFile const& bitcoinData, ADataFile const& userInput)
+BitcoinExchange::BitcoinExchange(BitcoinData const& bitcoinData, UserInput const& userInput)
 {
     std::map<Date*, float> bitcoin_data = bitcoinData.getData();
     std::map<Date*, float> user_input = userInput.getData();
@@ -26,7 +26,7 @@ BitcoinExchange::BitcoinExchange(ADataFile const& bitcoinData, ADataFile const& 
         it = user_input.begin();
     while (it != user_input.end())
     {
-        std::cout << *it->first << ":" << it->second << "\n";
+        std::cout << *it->first << " => " << bitcoinData.getExchangeRate(*it->first) * it->second << std::endl;
         ++it;
     }
 }
