@@ -12,8 +12,7 @@
 
 NAME					=	btc
 
-CXX						=	c++
-CXXFLAGS				=	-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CXX						=	c++ -Wall -Wextra -Werror -std=c++98 -g
 
 INCLUDE_DIR				=	include/
 SRCS_DIR				=	source/
@@ -31,10 +30,10 @@ OBJS        			=	$(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 all						:	$(NAME)
 
 $(NAME)					:	$(OBJS)
-							$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+							$(CXX) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR)%.o			:	$(SRCS_DIR)%.cpp | $(OBJ_DIR)
-							$(CXX) $(CXXFLAGS) -I$(INCLUDE_DIR) -c $< -o $@
+							$(CXX) -I$(INCLUDE_DIR) -c $< -o $@
 
 $(OBJ_DIR)				:
 							mkdir -p $(OBJ_DIR)
