@@ -19,6 +19,7 @@ SRCS_DIR				=	source/
 OBJ_DIR					=	obj/
 
 SRCS					=	main.cpp											\
+							utils.cpp											\
 							ADataFile.cpp										\
 							BitcoinExchange.cpp									\
 							BitcoinData.cpp										\
