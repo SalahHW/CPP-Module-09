@@ -28,6 +28,7 @@ public:
 	int getYear() const;
 	int getMonth() const;
 	int getDay() const;
+	bool isValid() const;
 
 	bool operator<(Date const &other) const;
 	bool operator==(Date const &other) const;

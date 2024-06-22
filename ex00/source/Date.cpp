@@ -56,6 +56,11 @@ int Date::getDay() const
 	return (this->day);
 }
 
+bool Date::isValid() const
+{
+	return (is_valid);
+}
+
 bool Date::operator<(Date const &other) const
 {
 	if (year != other.year)
