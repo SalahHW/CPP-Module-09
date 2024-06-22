@@ -47,6 +47,10 @@ void ADataFile::processLine(std::string const& line)
         return;
     std::string date = line.substr(0, separator);
     std::string value = line.substr(separator + 1);
+    date = utils::trimWhitespace(date);
+    value = utils::trimWhitespace(value);
+    if (date == "date" && value == "value" && data_size == 0)
+        return;
     addEntry(date, value);
 }
 
@@ -71,7 +75,7 @@ void ADataFile::addEntry(std::string const& date_str, std::string const& value_s
         data[date] = value;
         data_size++;
     }
-    catch (const std::exception& e)
+    catch (const std::exception&)
     {
         return;
     }
