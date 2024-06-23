@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 17:47:15 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/19 14:41:43 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/23 09:22:15 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
     ~BitcoinData();
     BitcoinData(char const *filePath);
     
-    float getExchangeRate(Date &date) const;
+    float getExchangeRate(const Date &date) const;
     
 private:
     BitcoinData();
