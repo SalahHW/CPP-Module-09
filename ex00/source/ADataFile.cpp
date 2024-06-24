@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:04:34 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/19 14:54:22 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/25 00:27:03 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void ADataFile::processLine(std::string const& line)
     std::string value = line.substr(separator + 1);
     date = utils::trimWhitespace(date);
     value = utils::trimWhitespace(value);
-    if (date == "date" && value == "value" && data_size == 0)
+    if (date == "date" && (value == "value" || value == "exchange_rate") && data_size == 0)
         return;
     addEntry(date, value);
 }
