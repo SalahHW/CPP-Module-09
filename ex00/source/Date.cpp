@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 05:00:40 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/23 09:24:01 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/23 10:06:12 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,13 @@ bool Date::operator==(Date const &other) const
 bool Date::operator<=(Date const &other) const
 {
 	return (*this < other || *this == other);
+}
+
+bool Date::operator>(Date const &other) const
+{
+	if (*this < other || *this == other)
+		return (false);
+	return (true);
 }
 
 void Date::processDate(std::string const &date)

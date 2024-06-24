@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 03:30:44 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/23 09:22:54 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/23 10:03:38 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ public:
 	bool operator<(Date const &other) const;
 	bool operator==(Date const &other) const;
 	bool operator<=(Date const &other) const;
+	bool operator>(Date const &other) const;
 
 private:
 	Date();
