@@ -32,21 +32,21 @@ BitcoinData::BitcoinData(char const* filePath)
     }
 }
 
-float BitcoinData::getExchangeRate(Date& date) const
+float BitcoinData::getExchangeRate(const Date &date) const
 {
-    std::map<Date*, float>::const_iterator it = data.lower_bound(&date);
+    std::map<Date *, float>::const_iterator it = data.begin();
 
-    if (it != data.end() && it->first == &date)
+    if (date < *it->first)
+        throw std::runtime_error("No exchange rate found");
+    
+    float value = it->second;
+    
+    while (it != data.end())
     {
-        return it->second;
+        if (date < *it->first)
+            return (value);
+        value = it->second;
+        ++it;
     }
-    else if (it != data.begin())
-    {
-        --it;
-        return it->second;
-    }
-    else
-    {
-        throw std::runtime_error("Error: no exchange rate found for the given date");
-    }
+    return (value);
 }
