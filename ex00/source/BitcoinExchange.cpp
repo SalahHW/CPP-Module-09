@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:08:08 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/19 14:55:25 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/25 00:49:43 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ BitcoinExchange::BitcoinExchange(BitcoinData const& bitcoinData, UserInput const
         it = user_input.begin();
     while (it != user_input.end())
     {
-        std::cout << *it->first << " => " << bitcoinData.getExchangeRate(*it->first) * it->second << std::endl;
+        if (it->first->isValid())
+            std::cout << *it->first << " => " << it->second << bitcoinData.getExchangeRate(*it->first) << std::endl;
+        else
+            std::cout << "Error: bad input => " << *it->first << std::endl;
         ++it;
     }
 }
