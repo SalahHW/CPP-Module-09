@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:04:34 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/25 00:27:03 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/26 16:26:55y sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ADataFile::~ADataFile()
 {
-    std::map<Date*, float>::iterator it = data.begin();
+    std::map<Date *, float>::iterator it = data.begin();
     while (it != data.end())
     {
         delete it->first;
@@ -22,14 +22,14 @@ ADataFile::~ADataFile()
     }
 }
 
-ADataFile::ADataFile(char const* filePath)
+ADataFile::ADataFile(char const *filePath)
     : filePath(filePath)
 {
     data_size = 0;
     separator_char = ',';
 }
 
-std::map<Date*, float> ADataFile::getData() const
+std::map<Date *, float> ADataFile::getData() const
 {
     return (data);
 }
@@ -82,17 +82,17 @@ void ADataFile::loadFromFile()
         processLine(line);
 }
 
-void ADataFile::addEntry(std::string const& date_str, std::string const& value_str)
+void ADataFile::addEntry(std::string const &date_str, std::string const &value_str)
 {
     try
     {
         float value;
-        Date* date = new Date(date_str);
-        value = strtof(value_str.c_str(), NULL);
+        Date *date = new Date(date_str);
+        value = utils::strtof(value_str.c_str());
         data[date] = value;
         data_size++;
     }
-    catch (const std::exception&)
+    catch (const std::exception &)
     {
         return;
     }
