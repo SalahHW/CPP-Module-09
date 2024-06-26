@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:26:25 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/26 14:39:10 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/26 20:03:14 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool utils::isWhiteSpace(const char c)
 	return (false);
 }
 
-std::string utils::trimWhitespace(const std::string& str)
+std::string utils::trimWhitespace(const std::string &str)
 {
 	std::string::size_type first = str.find_first_not_of(" \t\n\r\f\v");
 	if (first == std::string::npos)

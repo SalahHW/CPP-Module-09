@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 03:30:44 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/23 10:03:38 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/26 20:02:09 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	Date &operator=(Date const &other);
 	Date(std::string const &date);
 
-	std::string const & getDate() const;
+	std::string const &getDate() const;
 	int getYear() const;
 	int getMonth() const;
 	int getDay() const;

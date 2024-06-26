@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 05:00:40 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/23 10:06:12 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/26 20:03:04 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Date::Date(std::string const &date)
 	processDate(date);
 }
 
-std::string const & Date::getDate() const
+std::string const &Date::getDate() const
 {
 	return (this->input_date);
 }
@@ -64,11 +64,11 @@ bool Date::isValid() const
 bool Date::operator<(Date const &other) const
 {
 	if (year != other.year)
-        return year < other.year;
+		return year < other.year;
 	else if (month != other.month)
-        return month < other.month;
-    else
-        return day < other.day;
+		return month < other.month;
+	else
+		return day < other.day;
 }
 
 bool Date::operator==(Date const &other) const
@@ -97,7 +97,7 @@ void Date::processDate(std::string const &date)
 		validDate();
 		is_valid = true;
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		is_valid = false;
 	}
@@ -145,7 +145,7 @@ void Date::convertDate(std::string const &date)
 		month = atoi(month_str.c_str());
 		day = atoi(day_str.c_str());
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		throw std::exception();
 	}
