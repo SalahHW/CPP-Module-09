@@ -54,11 +54,16 @@ void ADataFile::printData() const
 void ADataFile::processLine(std::string const &line)
 {
     std::string::size_type separator = line.find(separator_char);
+    std::string date;
+    std::string value;
 
     if (separator == std::string::npos)
-        return;
-    std::string date = line.substr(0, separator);
-    std::string value = line.substr(separator + 1);
+        date = line;
+    else
+    {
+        date = line.substr(0, separator);
+        value = line.substr(separator + 1);
+    }
     date = utils::trimWhitespace(date);
     value = utils::trimWhitespace(value);
     if (date == "date" && (value == "value" || value == "exchange_rate") && data_size == 0)
