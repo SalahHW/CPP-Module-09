@@ -39,7 +39,19 @@ size_t ADataFile::getDataSize() const
     return (data_size);
 }
 
-void ADataFile::processLine(std::string const& line)
+void ADataFile::printData() const
+{
+    std::map<Date *, float>::const_iterator it = data.begin();
+    while (it != data.end())
+    {
+        std::cout << *it->first << " => "
+                  << std::fixed << std::setprecision(2)
+                  << it->second << std::endl;
+        ++it;
+    }
+}
+
+void ADataFile::processLine(std::string const &line)
 {
     std::string::size_type separator = line.find(separator_char);
 

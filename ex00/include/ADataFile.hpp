@@ -6,14 +6,16 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 09:07:04 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/19 14:38:03 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:55:52 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "utils.hpp"
-#include <Date.hpp>
+#include "Date.hpp"
+#include <iomanip>
+#include <iostream>
 #include <map>
 #include <string>
 #include <fstream>
@@ -26,6 +28,7 @@ public:
 
 	std::map<Date *, float> getData() const;
 	size_t getDataSize() const;
+	void printData() const;
 
 private:
 	ADataFile();
