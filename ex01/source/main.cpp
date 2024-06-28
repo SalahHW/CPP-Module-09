@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/26 20:07:39 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/06/27 19:27:16 by sbouheni         ###   ########.fr       */
+/*   Created: 2024/06/27 15:22:26 by sbouheni          #+#    #+#             */
+/*   Updated: 2024/06/27 16:08:34 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "RPN.hpp"
 
-#include <iostream>
-#include <stack>
-#include <cstdlib>
-#include <sstream>
-
-class RPN
+int main(int argc, char *argv[])
 {
-public:
-	~RPN();
-	static int calculate(const std::string &input);
+	if (argc != 2)
+	{
+		std::cerr << "Usage: ./RPN \"expression\"" << std::endl;
+		return 1;
+	}
 
-private:
-	RPN();
-	RPN(RPN const &other);
-	RPN &operator=(RPN const &other);
-
-	static bool isOperator(const std::string &token);
-	static int performOperation(int operand1, int operand2, const std::string &operatorToken);
-};
+	try
+	{
+		int result = RPN::calculate(argv[1]);
+		std::cout << result << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+		return (1);
+	}
+	return 0;
+}
