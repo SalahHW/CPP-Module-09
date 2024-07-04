@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:54:18 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/07/04 16:52:14 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/07/05 00:57:49 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ int main(int argc, char **argv)
 		std::cerr << "Usage: ./PmergeMe numbers" << std::endl;
 		return (1);
 	}
-	PmergeMe test(argc, argv);
+	try
+	{
+		PmergeMe test(argc, argv);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	return (0);
 }
