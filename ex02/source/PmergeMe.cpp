@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:53:32 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/07/04 17:00:00 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/07/05 00:15:34 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,31 @@ void PmergeMe::extractNumbers(int argc, char **argv)
 	int num;
 	for (int i = 1; i < argc; i++)
 	{
-		//TODO : check numbers before atoi;
+		if (!isValidNumber(argv[i]))
+			throw std::invalid_argument("Argument contains invalid number.");
 		num = std::atoi(argv[i]);
 		dataVector.push_back(num);
 		dataList.push_back(num);
 	}
-	//
-	printVector();
-	printList();
+}
+
+bool PmergeMe::isValidNumber(char *str) const
+{
+	std::string number(str);
+	long num;
+
+	if (number.empty())
+		return (false);
+	for (size_t i = 0; i < number.size(); i++)
+	{
+		if (i == 0 && (number[i] == '-' || number[i] == '+'))
+			continue;
+		if (!std::isdigit(number[i]))
+			return (false);
+	}
+	errno = 0;
+	num = std::atol(str);
+	if (errno == ERANGE || num > INT_MAX || num < INT_MIN)
+		return (false);
+	return (true);
 }

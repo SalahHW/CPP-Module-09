@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:49:56 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/07/04 16:52:50 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/07/05 00:11:21 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <string>
+#include <cerrno>
+#include <climits>
 
 class PmergeMe
 {
@@ -33,6 +36,8 @@ private:
 	PmergeMe();
 
 	void extractNumbers(int argc, char **argv);
+	bool isValidNumber(char *str) const;
+
 	std::vector<int> dataVector;
 	std::list<int> dataList;
 };
