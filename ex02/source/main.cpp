@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:54:18 by sbouheni          #+#    #+#             */
-/*   Updated: 2024/07/05 00:57:49 by sbouheni         ###   ########.fr       */
+/*   Updated: 2024/07/05 12:02:14 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	}
 	try
 	{
-		PmergeMe test(argc, argv);
+		PmergeMe(argc, argv);
 	}
 	catch(const std::exception& e)
 	{
